@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="false"
+        android:label="SunmiPrintBridge"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.NoDisplay">
+
+        <!-- This activity has NO UI — it receives the intent, prints, and closes -->
+        <activity
+            android:name=".PrintActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+
+            <!-- Handle sunmiprint:// URLs from Chrome -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="sunmiprint" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
